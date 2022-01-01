@@ -26,12 +26,12 @@ Now its time to configure it:
 addr: ":8443"
 log: devserver.log
 routes:
-_app.dc.local: https://www.slashdot.org
-app.dc.local/s/: https://www.slashdot.org
-app.dc.local/g/: https://www.google.com
-app.dc.local/static/: static:///<somedir>/devserver
-app.dc.local/raw/: raw:///<somedir>/devserver/raw
-api.dc.local: http://localhost:8082
+  _app.dc.local: https://www.slashdot.org
+  app.dc.local/s/: https://www.slashdot.org
+  app.dc.local/g/: https://www.google.com
+  app.dc.local/static/: static:///<somedir>/devserver
+  app.dc.local/raw/: raw:///<somedir>/devserver/raw
+  api.dc.local: http://localhost:8082
 ```
 
 Based on the config above, we can find the following:

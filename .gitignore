@@ -16,3 +16,5 @@
 .idea
 .vscode
 raw
+/packing/DevServer.app/Contents/MacOS/devserver
+/packing/mac/DevServer.app/Contents/MacOS/devserver

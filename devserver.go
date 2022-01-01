@@ -390,7 +390,7 @@ func onReady() {
 	mRestart := systray.AddMenuItem("Restart", "")
 	mOpenDir := systray.AddMenuItem("Open Dir", "")
 	systray.AddSeparator()
-	systray.AddMenuItem("Digital Circle® - V:0.0.5", "")
+	systray.AddMenuItem("Digital Circle® - V:0.0.7", "")
 	systray.AddSeparator()
 	mQuit := systray.AddMenuItem("Quit", "")
 

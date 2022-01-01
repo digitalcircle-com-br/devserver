@@ -57,3 +57,13 @@ Protocol may be:
 
 To keep adherend, we strongly suggest the usage of virtual hosts, by editing /etc/host or c:
 \windows\system32\drivers\etc\hosts
+
+# Install
+### Unix (Mac/Linux,etc)
+  go install github.com/digitalcircle-com-br/devserver@0.0.1
+### Windows
+  go install -ldflags "-H=windowsgui"  github.com/digitalcircle-com-br/devserver@0.0.1
+  
+After that, just launch it, on menu, ask to open dir and edit your config.
+
+Have fun!

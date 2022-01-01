@@ -63,6 +63,7 @@ type cfg struct {
 var Cfg *cfg = &cfg{}
 
 func LoadCfg() (bool, error) {
+	Cfg = &cfg{}
 	bs, err := os.ReadFile("config.yaml")
 	if err != nil {
 		return false, err
@@ -331,7 +332,7 @@ func StartHttpsServer() error {
 }
 
 func StopHttpServer() {
-	httpsServer.Shutdown(context.Background())
+	go httpsServer.Shutdown(context.Background())
 }
 
 var wd string
@@ -398,8 +399,7 @@ func onReady() {
 	case <-mOpenDir.ClickedCh:
 		open.Run(wd)
 	case <-mQuit.ClickedCh:
-		StopHttpServer()
-		os.Exit(0)
+		systray.Quit()
 	}
 	// Sets the icon of a menu item. Only available on Mac and Windows.
 	//mQuit.SetIcon(icon.Data)

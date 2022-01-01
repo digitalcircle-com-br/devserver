@@ -3,7 +3,6 @@ package main
 import (
 	"bufio"
 	"bytes"
-	"context"
 	"crypto/tls"
 	_ "embed"
 	"fmt"
@@ -332,7 +331,7 @@ func StartHttpsServer() error {
 }
 
 func StopHttpServer() {
-	go httpsServer.Shutdown(context.Background())
+	go httpsServer.Close()
 }
 
 var wd string

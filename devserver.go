@@ -331,7 +331,7 @@ func StartHttpsServer() error {
 }
 
 func StopHttpServer() {
-	go httpsServer.Close()
+	httpsServer.Close()
 }
 
 var wd string
@@ -389,19 +389,23 @@ func onReady() {
 
 	mRestart := systray.AddMenuItem("Restart", "")
 	mOpenDir := systray.AddMenuItem("Open Dir", "")
+	systray.AddSeparator()
+	systray.AddMenuItem("Ver: 0.0.4", "")
+	systray.AddSeparator()
 	mQuit := systray.AddMenuItem("Quit", "")
 
-	select {
-	case <-mRestart.ClickedCh:
-		StopHttpServer()
-		StartHttpsServer()
-	case <-mOpenDir.ClickedCh:
-		open.Run(wd)
-	case <-mQuit.ClickedCh:
-		systray.Quit()
+	for {
+		select {
+		case <-mRestart.ClickedCh:
+			StopHttpServer()
+			StartHttpsServer()
+		case <-mOpenDir.ClickedCh:
+			open.Run(wd)
+		case <-mQuit.ClickedCh:
+			systray.Quit()
+		}
 	}
-	// Sets the icon of a menu item. Only available on Mac and Windows.
-	//mQuit.SetIcon(icon.Data)
+
 }
 
 func onExit() {

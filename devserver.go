@@ -389,8 +389,9 @@ func onReady() {
 
 	mRestart := systray.AddMenuItem("Restart", "")
 	mOpenDir := systray.AddMenuItem("Open Dir", "")
+	mOpenConfig := systray.AddMenuItem("Open Config", "")
 	systray.AddSeparator()
-	systray.AddMenuItem("Digital Circle® - V:0.0.7", "")
+	systray.AddMenuItem("Digital Circle® - V:0.0.8", "")
 	systray.AddSeparator()
 	mQuit := systray.AddMenuItem("Quit", "")
 
@@ -401,6 +402,8 @@ func onReady() {
 			StartHttpsServer()
 		case <-mOpenDir.ClickedCh:
 			open.Run(wd)
+		case <-mOpenConfig.ClickedCh:
+			open.Run(path.Join(wd, "config.yaml"))
 		case <-mQuit.ClickedCh:
 			systray.Quit()
 		}

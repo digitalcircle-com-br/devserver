@@ -66,4 +66,10 @@ To keep adherend, we strongly suggest the usage of virtual hosts, by editing /et
   
 After that, just launch it, on menu, ask to open dir and edit your config.
 
+# Complementary Setup
+ - [Editing Hosts File](https://linuxize.com/post/how-to-edit-your-hosts-file/)
+ - [Add Certificate Windows](https://support.securly.com/hc/en-us/articles/360026808753-How-do-I-manually-install-the-Securly-SSL-certificate-on-Windows)
+ - [Add Certificate Mac](https://support.securly.com/hc/en-us/articles/206058318-How-to-install-the-Securly-SSL-certificate-on-Mac-OSX-)
+ - [Add Certificate Linux](https://askubuntu.com/questions/645818/how-to-install-certificates-for-command-line)
+
 Have fun!

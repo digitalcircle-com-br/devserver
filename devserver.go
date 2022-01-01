@@ -1,4 +1,4 @@
-package devserver
+package main
 
 import (
 	"bufio"
@@ -7,11 +7,6 @@ import (
 	"crypto/tls"
 	_ "embed"
 	"fmt"
-	"github.com/digitalcircle-com-br/caroot"
-	"github.com/getlantern/systray"
-	"github.com/natefinch/lumberjack"
-	"github.com/skratchdot/open-golang/open"
-	"gopkg.in/yaml.v2"
 	"io"
 	"log"
 	"mime"
@@ -24,6 +19,12 @@ import (
 	"runtime"
 	"strings"
 	"time"
+
+	"github.com/digitalcircle-com-br/caroot"
+	"github.com/getlantern/systray"
+	"github.com/natefinch/lumberjack"
+	"github.com/skratchdot/open-golang/open"
+	"gopkg.in/yaml.v2"
 )
 
 //go:embed lib/logo_dc_square.png
@@ -406,4 +407,8 @@ func onReady() {
 
 func onExit() {
 	// clean up here
+}
+
+func main() {
+	Start()
 }

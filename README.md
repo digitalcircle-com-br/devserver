@@ -9,6 +9,8 @@ Devserver is a http gateway to simplify usage on you machine.
 
 Devserver allows creating of virtual hosts locally, also managing the certificates
 
+> Video in portuguese explaining it a little: [LINK](https://drive.google.com/file/d/1mxtEHXyhn09WPiYBrEyavhpsABXgR2WW/view?usp=sharing)
+
 ## How to use it
 
 Install Devserver

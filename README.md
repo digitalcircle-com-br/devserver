@@ -24,17 +24,15 @@ Once done, it will generate a .devserver folder in your home dir, also initiatin
 Now its time to configure it:
 
 ```yaml
----
 addr: ":8443"
 log: devserver.log
 routes:
-  _app.dc.local: https://www.slashdot.org
-  app.dc.local/s/: https://www.slashdot.org
-  app.dc.local/g/: https://www.google.com
-  app.dc.local/static/: static:///<somedir>/devserver
-  app.dc.local/raw/: raw:///<somedir>/devserver/raw
-  api.dc.local: http://localhost:8082
+  app.dev.local/static/: static:~/app/static
+  app.dev.local/raw/: raw:~DS/devserver/raw
+  api.dev.local: http://localhost:8082
 ```
+
+> Special path subs: ~ will be replaced as userhome; ~DS will be replaced with devserver home
 
 Based on the config above, we can find the following:
 

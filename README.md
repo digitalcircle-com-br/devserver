@@ -99,11 +99,11 @@ To keep adherend, we strongly suggest the usage of virtual hosts, by editing /et
 \windows\system32\drivers\etc\hosts
 
 # Install
-### Unix (Mac/Linux,etc)
-  go install github.com/digitalcircle-com-br/devserver@latest
-### Windows
-  go install -ldflags "-H=windowsgui"  github.com/digitalcircle-com-br/devserver@latest
-  
+
+Please consider getting it from the releases page. In case your arch is not there, clone the repo and use the makefile (read it 1st, ok?)
+
+In case you want to contribute by making the bins to your platform, please join the band
+
 After that, just launch it, on menu, ask to open dir and edit your config.
 
 # Complementary Setup

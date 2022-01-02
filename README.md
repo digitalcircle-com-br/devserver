@@ -2,7 +2,7 @@
 
 Local HTTPS Server with tools to ease development
 
-Made to all of us, speding hard time to develop locally due to Cookies, Cors, HTTPS reinforcement - well, this tool is
+Made to all of us, speding hard time to develop locally due to Cookies, CORS, HTTPS reinforcement - well, this tool is
 for you.
 
 Devserver is a http gateway to simplify usage on you machine.
@@ -50,9 +50,46 @@ Protocol may be:
 - static: in case you want to serve static pages from the filesystem
 - raw: similar to static, but the files are raw http responses - suppose a mock api. If you add _GET for example to the
   name of the file it will be used only to reply to GET request.s
+- serverless: allows usage of serverless programs (like cgi in the old times), please refer to serverless section ahead.
 - http/https are standard protocols, and will act as reverse proxy for these endpoints. 3 - log: defines if will log in
   file w rotate. File name is given here. If file name is  "-", then stdout will be used.
 
+
+# Serverless
+
+Serverless are programs that will read a request from stdin, process and send a raw http respose through stdout.
+
+We propose reading: [Nanoserverless] (https://github.com/digitalcircle-com-br/nanoserverless) for deeper understaning.
+
+The core idea here is: serverless://<dir> will make dir the root of a serverless fs tree. Requests will have src path prefix stripped, and url path will map to a file inside dir, named <strippedpath>.yaml or <strippedpath>_METHOD.yaml.
+In case the file with _METHOD is found, will have higher priority over <strippedpath>.yaml.
+
+The file content is like:
+
+```yaml
+cmd: go
+params: [run, ./serverless/a_get.go]
+```
+In this way, devserver will find what to execute upon request. the cmd with the params will be started, request will be sent to ti through stdin. Response will be sent back through stdout.
+
+A sample serverless program in go, using nanoserverless is like:
+
+```go
+package main
+
+import (
+	"net/http"
+
+	"github.com/digitalcircle-com-br/nanoserverless"
+)
+
+func main() {
+	nanoserverless.ServeSIO(func(rw http.ResponseWriter, r *http.Request) {
+		rw.Write([]byte("Hello World"))
+	})
+}
+```
+> Keep in mind paths are relative to ~/.devserver when setting up your serverless trees
 # Using virtual hosts
 
 To keep adherend, we strongly suggest the usage of virtual hosts, by editing /etc/host or c:

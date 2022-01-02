@@ -21,3 +21,4 @@ raw
 .DS_Store
 packing/distro
 .gitignore
+go.work

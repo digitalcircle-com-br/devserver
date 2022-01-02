@@ -54,9 +54,10 @@ func Init() error {
 		Cfg.Addr = ":8443"
 		Cfg.Log = "devserver.log"
 		Cfg.Routes = map[string]string{
-			"app.dev.local": "static://~/app",
-			"api.dev.local": "http://localhost:8081",
-			"raw.dev.local": "raw://~DS/raw",
+			"app.dev.local":        "static://~/app",
+			"api.dev.local":        "http://localhost:8081",
+			"raw.dev.local":        "raw://~DS/raw",
+			"serverless.dev.local": "serverless://~DS/serverless",
 		}
 		SaveCfg()
 

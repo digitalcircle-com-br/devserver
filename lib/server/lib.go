@@ -19,6 +19,7 @@ import (
 	"github.com/digitalcircle-com-br/devserver/lib/config"
 	"github.com/digitalcircle-com-br/devserver/lib/lpath"
 	"github.com/digitalcircle-com-br/devserver/lib/mime"
+	"github.com/digitalcircle-com-br/nanoserverless"
 )
 
 var httpsServer http.Server
@@ -126,7 +127,10 @@ func hRProxy(ri routeInfo) func(rw http.ResponseWriter, r *http.Request) {
 		defer res.Body.Close()
 		io.Copy(rw, res.Body)
 	}
+}
 
+func hServerless(ri routeInfo) func(rw http.ResponseWriter, r *http.Request) {
+	return nanoserverless.ServeDir(ri.epPath, ri.srcPath)
 }
 
 func buildEp(ri routeInfo) {
@@ -152,6 +156,8 @@ func buildEp(ri routeInfo) {
 		mx.HandleFunc(ri.srcPath, mwPerf(mwCors(hStatic(ri))))
 	case "raw":
 		mx.HandleFunc(ri.srcPath, mwPerf(mwCors(hRaw(ri))))
+	case "serverless":
+		mx.HandleFunc(ri.srcPath, mwPerf(mwCors(hServerless(ri))))
 	default:
 		mx.HandleFunc(ri.srcPath, mwPerf(mwCors(hRProxy(ri))))
 	}

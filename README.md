@@ -61,8 +61,8 @@ Serverless are programs that will read a request from stdin, process and send a 
 
 We propose reading: [Nanoserverless](https://github.com/digitalcircle-com-br/nanoserverless) for deeper understaning.
 
-The core idea here is: serverless://<dir> will make dir the root of a serverless fs tree. Requests will have src path prefix stripped, and url path will map to a file inside dir, named <strippedpath>.yaml or <strippedpath>_METHOD.yaml.
-In case the file with _METHOD is found, will have higher priority over <strippedpath>.yaml.
+The core idea here is: serverless://`<dir>` will make dir the root of a serverless fs tree. Requests will have src path prefix stripped, and url path will map to a file inside dir, named `<strippedpath>.yaml` or `<strippedpath>_METHOD.yaml`.
+In case the file with _METHOD is found, will have higher priority over `<strippedpath>.yaml`.
 
 The file content is like:
 

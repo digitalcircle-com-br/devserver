@@ -7,7 +7,6 @@ import (
 	"time"
 )
 
-
 func mwCors(h func(rw http.ResponseWriter, r *http.Request)) func(rw http.ResponseWriter, r *http.Request) {
 	return func(rw http.ResponseWriter, r *http.Request) {
 		orig := r.Header.Get("Origin")
@@ -17,7 +16,7 @@ func mwCors(h func(rw http.ResponseWriter, r *http.Request)) func(rw http.Respon
 
 		rw.Header().Set("Access-Control-Allow-Origin", orig)
 		rw.Header().Set("Access-Control-Allow-Methods", "POST, GET, OPTIONS, PUT, DELETE")
-		rw.Header().Set("Access-Control-Allow-Headers", "Last-Modified, Expires, Accept, Cache-Control, Content-Type, Content-Language,Content-Length, Accept-Encoding, X-CSRF-Token, Authorization, Pragma")
+		rw.Header().Set("Access-Control-Allow-Headers", "Last-Modified, Expires, Accept, Cache-Control, Content-Type, Content-Language,Content-Length, Accept-Encoding, X-CSRF-Token, Authorization, Pragma, Upgrade")
 		rw.Header().Set("Access-Control-Allow-Credentials", "true")
 		h(rw, r)
 	}

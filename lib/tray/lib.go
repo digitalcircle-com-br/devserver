@@ -4,6 +4,7 @@ import (
 	_ "embed"
 	"path"
 	"runtime"
+	"strings"
 
 	"github.com/digitalcircle-com-br/devserver/lib/config"
 	"github.com/digitalcircle-com-br/devserver/lib/server"
@@ -31,17 +32,24 @@ func onReady() {
 	systray.SetTitle("DC - DevServer")
 	systray.SetTooltip("Digital Circle - Development Server & Gateway")
 
+	mLogs := systray.AddMenuItem("Logs", "")
 	mRestart := systray.AddMenuItem("Restart", "")
 	mOpenDir := systray.AddMenuItem("Open Dir", "")
 	mOpenConfig := systray.AddMenuItem("Open Config", "")
 	mHelp := systray.AddMenuItem("Help", "")
 	systray.AddSeparator()
-	systray.AddMenuItem("Digital Circle® - V:0.0.11", "")
+	systray.AddMenuItem("Digital Circle® - V:0.0.13", "")
 	systray.AddSeparator()
 	mQuit := systray.AddMenuItem("Quit", "")
 
 	for {
 		select {
+		case <-mLogs.ClickedCh:
+			if strings.HasPrefix(config.Cfg.Addr, ":") {
+				open.Run("https://localhost" + config.Cfg.Addr + "/__log/index.html")
+			} else {
+				open.Run("https://" + config.Cfg.Addr + "/__log/index.html")
+			}
 		case <-mRestart.ClickedCh:
 			server.StopHttpServer()
 			server.StartHttpsServer()

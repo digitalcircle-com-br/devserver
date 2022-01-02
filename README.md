@@ -28,7 +28,7 @@ Now its time to configure it:
 
 ```yaml
 addr: ":8443"
-log: devserver.log
+log: web
 routes:
   app.dev.local/static/: static:~/app/static
   app.dev.local/raw/: raw:~DS/devserver/raw
@@ -40,8 +40,8 @@ routes:
 Based on the config above, we can find the following:
 
 1 - addr: is the address/port the gateway will listen.
-
-2 - routes: define different virtual hosts / paths to address your requests
+2 - log: how to track log. In case value is `-`, will be sent to stdout. in case value is `web`, we will use weg log interface. Everything else will be considered a file name, and log will be sent there. For the log web interface, either open you browser on `https://localhost<addr>/__log/index.html` or use the provided menu in tray.
+3 - routes: define different virtual hosts / paths to address your requests
 
 A route is always a hostname and path, being the minimal path "/". Its important to define a hostname "*" to be used as
 default host in case request does not match any previously set route.

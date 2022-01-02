@@ -12,6 +12,7 @@ import (
 
 type cfg struct {
 	Addr   string            `json:"addr" yaml:"addr"`
+	Env    map[string]string `json:"env" yaml:"env"`
 	Log    string            `json:"log" yaml:"log"`
 	Routes map[string]string `json:"routes" yaml:"routes"`
 }
@@ -25,6 +26,10 @@ func LoadCfg() (bool, error) {
 		return false, err
 	}
 	err = yaml.Unmarshal(bs, Cfg)
+	for k, v := range Cfg.Env {
+		log.Printf("Setting ENV: %s from config", k)
+		os.Setenv(k, v)
+	}
 	return true, err
 }
 
@@ -52,7 +57,7 @@ func Init() error {
 	found, err := LoadCfg()
 	if !found {
 		Cfg.Addr = ":8443"
-		Cfg.Log = "devserver.log"
+		Cfg.Log = "web"
 		Cfg.Routes = map[string]string{
 			"app.dev.local":        "static://~/app",
 			"api.dev.local":        "http://localhost:8081",
@@ -65,7 +70,7 @@ func Init() error {
 		return err
 	}
 
-	if Cfg.Log != "-" {
+	if Cfg.Log != "-" && Cfg.Log != "web" {
 		log.SetOutput(&lumberjack.Logger{
 			Filename:   Cfg.Log,
 			MaxSize:    25, // megabytes

@@ -205,6 +205,13 @@ func StartHttpsServer() error {
 
 	mx := &http.ServeMux{}
 
+	var logwebmux *http.ServeMux
+	if config.Cfg.Log == "web" {
+		WebLogSetup()
+		logwebmux = WebLogMux()
+		mx.Handle("/__log/", http.StripPrefix("/__log", logwebmux))
+	}
+
 	mx.HandleFunc("/", func(rw http.ResponseWriter, r *http.Request) {
 
 		h := strings.Split(r.Host, ":")[0]

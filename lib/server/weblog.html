@@ -1,0 +1,50 @@
+<html style="font-family: Arial, Helvetica, sans-serif;">
+<script>
+    function clearLogs() {
+        let xmp = document.getElementById("content")
+        xmp.innerText = ""
+    }
+</script>
+
+<body>
+    <div>
+        Filter:<input id="filter" type="text" aria-label="Filter">
+        <input id="filter" type="button" value="Clear" onclick="clearLogs();">
+    </div>
+    <div id="divlog" style="overflow:scroll;position: absolute; top: 34px;bottom: 4px; left: 4px; right: 4px;">
+        <xmp id="content"></xmp>
+    </div>
+</body>
+<script>
+    let xmp = document.getElementById("content")
+    /** @type {HTMLInputElement} */
+    let filter = document.getElementById("filter")
+    let divlog = document.getElementById("divlog")
+    let lurl = document.location
+    let wsurl = lurl.origin.replace("http", "ws") + "/__log/"
+    let ws = new WebSocket(wsurl)
+    ws.onopen = () => {
+        console.log("Opened Socket")
+        ws.onmessage = (evt) => {
+            /** @type{ {msg:string} } */
+            let msg = JSON.parse(evt.data)
+            if (filter.value == "") {
+                xmp.innerText = xmp.innerText + "\n" + msg.msg
+            } else {
+                if (msg.msg.indexOf(filter.value) > -1) {
+                    xmp.innerText = xmp.innerText + "\n" + msg.msg
+                }
+            }
+            divlog.scrollTop = divlog.scrollHeight;
+
+        }
+    }
+    ws.onclose = () => {
+        console.log("Socket closed")
+        window.location.reload()
+    }
+
+
+</script>
+
+</html>

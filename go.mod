@@ -5,6 +5,7 @@ go 1.17
 require (
 	github.com/digitalcircle-com-br/caroot v0.0.0-20211229200027-553deac5702d
 	github.com/digitalcircle-com-br/nanoserverless v0.0.0-20211229084524-c13fccc4ed17
+	github.com/digitalcircle-com-br/random v0.0.0-20211218111356-2816018d0ad2
 	github.com/getlantern/systray v1.1.0
 	github.com/natefinch/lumberjack v2.0.0+incompatible
 	github.com/skratchdot/open-golang v0.0.0-20200116055534-eef842397966
@@ -20,6 +21,7 @@ require (
 	github.com/getlantern/hidden v0.0.0-20201229170000-e66e7f878730 // indirect
 	github.com/getlantern/ops v0.0.0-20200403153110-8476b16edcd6 // indirect
 	github.com/go-stack/stack v1.8.1 // indirect
+	github.com/gorilla/websocket v1.4.2 // indirect
 	github.com/oxtoacart/bpool v0.0.0-20190530202638-03653db5a59c // indirect
 	go.uber.org/atomic v1.9.0 // indirect
 	go.uber.org/multierr v1.7.0 // indirect

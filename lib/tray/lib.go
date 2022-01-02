@@ -36,7 +36,7 @@ func onReady() {
 	mOpenConfig := systray.AddMenuItem("Open Config", "")
 	mHelp := systray.AddMenuItem("Help", "")
 	systray.AddSeparator()
-	systray.AddMenuItem("Digital Circle® - V:0.0.10", "")
+	systray.AddMenuItem("Digital Circle® - V:0.0.11", "")
 	systray.AddSeparator()
 	mQuit := systray.AddMenuItem("Quit", "")
 

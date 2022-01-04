@@ -113,5 +113,6 @@ After that, just launch it, on menu, ask to open dir and edit your config.
  - [Add Certificate Windows](https://support.securly.com/hc/en-us/articles/360026808753-How-do-I-manually-install-the-Securly-SSL-certificate-on-Windows)
  - [Add Certificate Mac](https://support.securly.com/hc/en-us/articles/206058318-How-to-install-the-Securly-SSL-certificate-on-Mac-OSX-)
  - [Add Certificate Linux](https://askubuntu.com/questions/645818/how-to-install-certificates-for-command-line)
+ - [Add Certificate Linux - Chrome](https://chromium.googlesource.com/chromium/src.git/+/refs/heads/main/docs/linux/cert_management.md)
 
 Have fun!

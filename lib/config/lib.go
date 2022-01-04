@@ -65,6 +65,13 @@ func Init() error {
 			"serverless.dev.local": "serverless://~DS/serverless",
 		}
 		SaveCfg()
+		found, err = LoadCfg()
+		if err != nil {
+			panic(err.Error())
+		}
+		if !found {
+			panic("Could not load config")
+		}
 
 	} else if err != nil {
 		return err

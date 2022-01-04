@@ -37,6 +37,8 @@ routes:
 
 > Special path subs: ~ will be replaced as userhome; ~DS will be replaced with devserver home
 
+> FOR WINDOWS!!! - use `static:///c:\myfolder\mysubfolder`- In this case, 3 slashes are required at the begining, later slashes are counter-slashes just as used in windows. No scape slash is required.
+
 Based on the config above, we can find the following:
 
 1. addr: is the address/port the gateway will listen.

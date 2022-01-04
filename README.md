@@ -37,6 +37,8 @@ routes:
 
 > Special path subs: ~ will be replaced as userhome; ~DS will be replaced with devserver home
 
+> FOR WINDOWS!!! - use `static:///c:\myfolder\mysubfolder`- In this case, 3 slashes are required at the begining, later slashes are counter-slashes just as used in windows. No scape slash is required.
+
 Based on the config above, we can find the following:
 
 1. addr: is the address/port the gateway will listen.
@@ -113,5 +115,6 @@ After that, just launch it, on menu, ask to open dir and edit your config.
  - [Add Certificate Windows](https://support.securly.com/hc/en-us/articles/360026808753-How-do-I-manually-install-the-Securly-SSL-certificate-on-Windows)
  - [Add Certificate Mac](https://support.securly.com/hc/en-us/articles/206058318-How-to-install-the-Securly-SSL-certificate-on-Mac-OSX-)
  - [Add Certificate Linux](https://askubuntu.com/questions/645818/how-to-install-certificates-for-command-line)
+ - [Add Certificate Linux - Chrome](https://chromium.googlesource.com/chromium/src.git/+/refs/heads/main/docs/linux/cert_management.md)
 
 Have fun!

@@ -118,3 +118,6 @@ After that, just launch it, on menu, ask to open dir and edit your config.
  - [Add Certificate Linux - Chrome](https://chromium.googlesource.com/chromium/src.git/+/refs/heads/main/docs/linux/cert_management.md)
 
 Have fun!
+	
+# Contributors:
+	[Marcus Zani](https://github.com/marcuszani) - Build for Darwin AMD64

@@ -81,6 +81,7 @@ In this way, devserver will find what to execute upon request. the cmd with the 
 
 A sample serverless program in go, using nanoserverless is like:
 
+	
 ```go
 package main
 
@@ -120,4 +121,5 @@ After that, just launch it, on menu, ask to open dir and edit your config.
 Have fun!
 	
 # Contributors:
-	[Marcus Zani](https://github.com/marcuszani) - Build for Darwin AMD64
+
+- [Marcus Zani](https://github.com/marcuszani) - Build for Darwin AMD64

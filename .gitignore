@@ -22,3 +22,4 @@ raw
 packing/distro
 .gitignore
 go.work
+packing/_mac/DevServer.app/Contents/MacOS/devserver

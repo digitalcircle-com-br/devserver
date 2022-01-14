@@ -119,8 +119,10 @@ func hRProxy(ri routeInfo) func(rw http.ResponseWriter, r *http.Request) {
 		}
 
 		for k, v := range res.Header {
-			for _, vv := range v {
-				rw.Header().Add(k, vv)
+			if rw.Header().Get(k) == "" {
+				for _, vv := range v {
+					rw.Header().Add(k, vv)
+				}
 			}
 		}
 		rw.WriteHeader(res.StatusCode)
